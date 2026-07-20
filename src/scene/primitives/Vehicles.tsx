@@ -50,7 +50,7 @@ export function Car({
         [0.75, 0.25, -1.2],
       ].map((pos, i) => (
         <mesh key={i} castShadow position={pos as [number, number, number]}>
-          <cylinderGeometry args={[0.28, 0.28, 0.22, 12]} />
+          <cylinderGeometry args={[0.28, 0.28, 0.22, 24]} />
           <meshStandardMaterial color="#111" roughness={0.9} />
         </mesh>
       ))}
@@ -96,7 +96,7 @@ export function FlatbedTruck({
         [2.8, 0.28, -0.85],
       ].map((pos, i) => (
         <mesh key={i} castShadow position={pos as [number, number, number]}>
-          <cylinderGeometry args={[0.32, 0.32, 0.24, 12]} />
+          <cylinderGeometry args={[0.32, 0.32, 0.24, 24]} />
           <meshStandardMaterial color="#111" />
         </mesh>
       ))}

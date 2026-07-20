@@ -76,7 +76,7 @@ export function World() {
       <Environment preset="sunset" />
 
       <EffectComposer multisampling={4}>
-        <SSAO radius={0.15} intensity={20} luminanceInfluence={0.5} color="black" />
+        <SSAO radius={0.15} intensity={20} luminanceInfluence={0.5} />
         <Bloom
           luminanceThreshold={0.85}
           luminanceSmoothing={0.9}

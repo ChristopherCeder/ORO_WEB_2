@@ -1,8 +1,8 @@
 import { useRef, type ReactNode } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { sampleCameraPath, truckOffset } from '../../data/cameraPath'
-import { scrollState } from '../../data/scrollState'
+import { sampleCameraPath, truckOffset } from '../data/cameraPath'
+import { scrollState } from '../data/scrollState'
 
 export function CameraRig() {
   const { camera } = useThree()

@@ -1,4 +1,6 @@
-import { ContactShadows, Environment, Sky } from '@react-three/drei'
+import { ContactShadows, Environment, Sky, SoftShadows } from '@react-three/drei'
+import { Bloom, EffectComposer, SSAO, ToneMapping, Vignette } from '@react-three/postprocessing'
+import { ToneMappingMode } from 'postprocessing'
 import { LandscapingZone, RoadsideZone } from './zones/LandscapingZone'
 import { ConstructionFront, GarageInterior, House, InteriorRoom } from './zones/House'
 import { FlatbedTruck } from './primitives/Vehicles'
@@ -8,6 +10,8 @@ export function World() {
   return (
     <>
       <CameraRig />
+
+      <SoftShadows size={25} samples={10} focus={0.5} />
 
       <Sky
         distance={450000}
@@ -70,6 +74,18 @@ export function World() {
       />
 
       <Environment preset="sunset" />
+
+      <EffectComposer multisampling={4}>
+        <SSAO radius={0.15} intensity={20} luminanceInfluence={0.5} color="black" />
+        <Bloom
+          luminanceThreshold={0.85}
+          luminanceSmoothing={0.9}
+          mipmapBlur
+          intensity={0.35}
+        />
+        <Vignette eskil={false} offset={0.15} darkness={0.6} />
+        <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
+      </EffectComposer>
     </>
   )
 }
@@ -78,11 +94,11 @@ function WorkerLoading({ position }: { position: [number, number, number] }) {
   return (
     <group position={position}>
       <mesh castShadow position={[0, 0.95, 0]}>
-        <capsuleGeometry args={[0.22, 0.55, 4, 8]} />
+        <capsuleGeometry args={[0.22, 0.55, 8, 16]} />
         <meshStandardMaterial color="#1e3a5f" />
       </mesh>
       <mesh castShadow position={[0, 1.55, 0]}>
-        <sphereGeometry args={[0.2, 12, 12]} />
+        <sphereGeometry args={[0.2, 24, 24]} />
         <meshStandardMaterial color="#e8c4a0" />
       </mesh>
     </group>

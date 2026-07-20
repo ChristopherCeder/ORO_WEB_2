@@ -30,15 +30,15 @@ export function Worker({
   return (
     <group ref={group} position={position} rotation={rotation}>
       <mesh castShadow position={[0, 0.95, 0]}>
-        <capsuleGeometry args={[0.22, 0.55, 4, 8]} />
+        <capsuleGeometry args={[0.22, 0.55, 8, 16]} />
         <meshStandardMaterial color={color} roughness={0.85} />
       </mesh>
       <mesh castShadow position={[0, 1.55, 0]}>
-        <sphereGeometry args={[0.2, 12, 12]} />
+        <sphereGeometry args={[0.2, 24, 24]} />
         <meshStandardMaterial color="#e8c4a0" roughness={0.9} />
       </mesh>
       <mesh castShadow position={[0, 1.72, 0]}>
-        <sphereGeometry args={[0.24, 12, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <sphereGeometry args={[0.24, 24, 24, 0, Math.PI * 2, 0, Math.PI / 2]} />
         <meshStandardMaterial color={hatColor} roughness={0.7} />
       </mesh>
       {tool === 'shovel' && (

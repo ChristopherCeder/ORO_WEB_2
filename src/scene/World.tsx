@@ -1,5 +1,5 @@
 import { ContactShadows, Environment, Sky, SoftShadows } from '@react-three/drei'
-import { Bloom, EffectComposer, SSAO, ToneMapping, Vignette } from '@react-three/postprocessing'
+import { Bloom, EffectComposer, ToneMapping, Vignette } from '@react-three/postprocessing'
 import { ToneMappingMode } from 'postprocessing'
 import { LandscapingZone, RoadsideZone } from './zones/LandscapingZone'
 import { ConstructionFront, GarageInterior, House, InteriorRoom } from './zones/House'
@@ -76,7 +76,6 @@ export function World() {
       <Environment preset="sunset" />
 
       <EffectComposer multisampling={4}>
-        <SSAO radius={0.15} intensity={20} luminanceInfluence={0.5} />
         <Bloom
           luminanceThreshold={0.85}
           luminanceSmoothing={0.9}

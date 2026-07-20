@@ -1,6 +1,7 @@
 import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Loader } from '@react-three/drei'
+import * as THREE from 'three'
 import { World } from '../scene/World'
 
 interface ExperienceProps {
@@ -16,7 +17,12 @@ export function Experience({ onReady }: ExperienceProps) {
         shadows
         dpr={[1, 1.75]}
         camera={{ fov: 45, near: 0.1, far: 300, position: [0, 72, 55] }}
-        gl={{ antialias: true, powerPreference: 'high-performance' }}
+        gl={{
+          antialias: true,
+          powerPreference: 'high-performance',
+          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMappingExposure: 1.1,
+        }}
         onCreated={() => {
           if (!started) {
             setStarted(true)

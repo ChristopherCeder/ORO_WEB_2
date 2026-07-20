@@ -19,15 +19,15 @@ export function Tree({ position, scale = 1 }: TreeProps) {
   return (
     <group position={position} scale={s}>
       <mesh castShadow position={[0, 0.75 * s, 0]}>
-        <cylinderGeometry args={[0.12 * s, 0.18 * s, 1.5 * s, 6]} />
+        <cylinderGeometry args={[0.12 * s, 0.18 * s, 1.5 * s, 16]} />
         <meshStandardMaterial color="#5c3d1e" roughness={0.95} />
       </mesh>
       <mesh ref={foliage} castShadow position={[0, 2 * s, 0]}>
-        <coneGeometry args={[0.9 * s, 2 * s, 7]} />
+        <coneGeometry args={[0.9 * s, 2 * s, 12]} />
         <meshStandardMaterial color="#2d6b3a" roughness={0.85} />
       </mesh>
       <mesh castShadow position={[0, 2.8 * s, 0]}>
-        <coneGeometry args={[0.65 * s, 1.4 * s, 7]} />
+        <coneGeometry args={[0.65 * s, 1.4 * s, 12]} />
         <meshStandardMaterial color="#358744" roughness={0.85} />
       </mesh>
     </group>
@@ -38,11 +38,11 @@ export function Bush({ position, scale = 1 }: TreeProps) {
   return (
     <group position={position} scale={scale}>
       <mesh castShadow>
-        <sphereGeometry args={[0.55, 8, 8]} />
+        <sphereGeometry args={[0.55, 20, 20]} />
         <meshStandardMaterial color="#3a7a45" roughness={0.9} />
       </mesh>
       <mesh castShadow position={[0.35, -0.1, 0.2]}>
-        <sphereGeometry args={[0.4, 8, 8]} />
+        <sphereGeometry args={[0.4, 20, 20]} />
         <meshStandardMaterial color="#458752" roughness={0.9} />
       </mesh>
     </group>
@@ -69,12 +69,12 @@ export function Mower({ position }: { position: [number, number, number] }) {
       </mesh>
       <group ref={wheel} position={[0.35, 0.18, 0.45]}>
         <mesh castShadow rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.18, 0.18, 0.12, 10]} />
+          <cylinderGeometry args={[0.18, 0.18, 0.12, 20]} />
           <meshStandardMaterial color="#111" />
         </mesh>
       </group>
       <mesh castShadow position={[-0.35, 0.18, 0.45]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[0.18, 0.18, 0.12, 10]} />
+        <cylinderGeometry args={[0.18, 0.18, 0.12, 20]} />
         <meshStandardMaterial color="#111" />
       </mesh>
     </group>

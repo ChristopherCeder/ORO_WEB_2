@@ -1,6 +1,6 @@
-import { Worker } from './Worker'
-import { Car } from './Vehicles'
-import { Bush, Mower, Tree } from './Nature'
+import { Worker } from '../primitives/Worker'
+import { Car } from '../primitives/Vehicles'
+import { Bush, Mower, Tree } from '../primitives/Nature'
 
 const treePositions: [number, number, number][] = [
   [-22, 0, -15], [-18, 0, 8], [-25, 0, 5], [15, 0, -18], [20, 0, 12],
